@@ -16,10 +16,10 @@ import java.util.Map;
 public class BaseControllerAdvice {
 
 
-//    @ExceptionHandler(ResourceNotFoundException.class)
-//    public Object resourceNotFoundException(ResourceNotFoundException e) {
-//        return response(HttpStatus.NOT_FOUND, e);
-//    }
+    @ExceptionHandler(NotFoundException.class)
+    public Object resourceNotFoundException(NotFoundException e) {
+        return response(HttpStatus.NOT_FOUND, e);
+    }
 
 //    @ExceptionHandler(InvalidAuthenticationInformationException.class)
 //    public Object invalidAuthenticationInformationException(InvalidAuthenticationInformationException e) {

@@ -2,6 +2,7 @@ package com.kochetkov.newpalette.security;
 
 
 import com.kochetkov.newpalette.entity.User;
+import com.kochetkov.newpalette.exception.NotFoundException;
 import com.kochetkov.newpalette.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,7 +21,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.getUserByName(username);
+        User user = userRepository.findByName(username).orElseThrow(() -> new NotFoundException("User not found"));
         return SecurityUser.fromUser(user);
     }
 }
