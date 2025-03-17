@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/kochet-diplom
+    url: jdbc:postgresql://localhost:5432/kochet-diplom?currentSchema=palette
     username: admin
     password: root
     driver-class-name: org.postgresql.Driver
